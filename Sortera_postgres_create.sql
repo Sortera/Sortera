@@ -5,6 +5,7 @@ CREATE TABLE "users" (
 	"email" VARCHAR(255) NOT NULL UNIQUE,
 	"downloads" integer NOT NULL,
 	"subscriber_status" BOOLEAN NOT NULL DEFAULT 'false',
+	
 	CONSTRAINT "users_pk" PRIMARY KEY ("_id")
 ) WITH (
   OIDS=FALSE
