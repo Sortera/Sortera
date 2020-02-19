@@ -1,7 +1,8 @@
 import { Component } from "react";
 import * as mobilenet from '@tensorflow-models/mobilenet';
+import React from 'react'
 
-class tabbedImages extends Component {
+export default class TabbedImages extends Component {
     constructor(props) {
         super(props);
 
@@ -22,7 +23,7 @@ componentDidMount() {
   let images = this.props.images;
   let taggedImages = [];
   
-  images = images.forEach((image) => {
+  images = images.forEach(async (image) => {
   //call predictImage on each image tag, and push the new labelled image to array for render
   await predictImage(image);
   taggedImages.push(
@@ -32,14 +33,17 @@ componentDidMount() {
     </div>
     ) 
   })
-  //need to dispatch filenames to state
+  //need to dispatch filenames to states
 }
 render() {
-  
+  let taggedImages =  this.props.images;
 
 
   return (
-    {taggedImages}
+    <div>
+       {taggedImages}
+    </div>
+   
     )
 }
 
