@@ -10,8 +10,6 @@ CREATE TABLE "users" (
   OIDS=FALSE
 );
 
-
-
 CREATE TABLE "images" (
 	"_id" serial NOT NULL UNIQUE,
 	"user_id" integer,
@@ -22,8 +20,6 @@ CREATE TABLE "images" (
   OIDS=FALSE
 );
 
-
-
 CREATE TABLE "sessions" (
 	"_id" integer NOT NULL,
 	"user_id" integer NOT NULL,
@@ -33,10 +29,5 @@ CREATE TABLE "sessions" (
   OIDS=FALSE
 );
 
-
-
-
 ALTER TABLE "images" ADD CONSTRAINT "images_fk0" FOREIGN KEY ("user_id") REFERENCES "users"("_id");
-
 ALTER TABLE "sessions" ADD CONSTRAINT "sessions_fk0" FOREIGN KEY ("user_id") REFERENCES "users"("_id");
-

@@ -5,17 +5,45 @@ const app = express();
 const PORT = 3000;
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
-const dbController = require('./controllers/dbController')
+const userController = require('./controllers/userController');
+const authController = require('./controllers/authController');
 
 app.use(bodyParser.urlencoded( {extended: true} ));
 app.use(cookieParser());
-app.use(express.static('assets'))
-app.post('/createUser', dbController.createUser, (req, res) => {
-  res.status(200);
-})
-app.get('/', (req, res) => {
+app.use(express.static('assets'));
+
+app.get('/', authController.createGeneralCookie, (req, res) => {
   res.status(200).sendFile(path.resolve(__dirname, '../client/index.html'));
-})
+});
+
+app.post('/images', (req, res) => {
+
+});
+
+app.get('/imageTags', (req, res) => {
+
+});
+
+// use this route to test or debug individual middleware one by one
+app.post('/test', userController.createUser, (req, res) => {
+  res.redirect('/');
+});
+
+app.post('/login', userController.verifyUser, authController.createUserCookie, authController.startSession, (req, res) => {
+  res.redirect('/');
+});
+
+app.post('/signup', userController.checkUnique, userController.createUser, authController.createUserCookie, authController.startSession, (req, res) => {
+  res.redirect('/');
+});
+
+app.use('*', (req, res) => {
+  res.status(404).send('Page Not Found');
+});
+
+app.use((err, req, res, next) => {
+  res.status(500).send(`Error: ${err}`);
+});
 
 // app.get('/build/bundle.js', (req, res) => {
 //   res.status(200).sendFile(path.resolve(__dirname, '../build/bundle.js'));
