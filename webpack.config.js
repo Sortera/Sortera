@@ -24,10 +24,12 @@ module.exports = {
           }
         ]
       },
+
       {
         test: /\.scss$/,
         use: ['style-loader', 'css-loader', 'sass-loader']
       },
+      
       {
         test: /\.(png|jpg|gif)$/,
         use: [
