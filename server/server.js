@@ -9,8 +9,7 @@ const dbController = require('./controllers/dbController')
 
 app.use(bodyParser.urlencoded( {extended: true} ));
 app.use(cookieParser());
-
-
+app.use(express.static('assets'))
 app.post('/createUser', dbController.createUser, (req, res) => {
   res.status(200);
 })
