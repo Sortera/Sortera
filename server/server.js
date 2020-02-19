@@ -9,6 +9,7 @@ const userController = require('./controllers/userController');
 
 app.use(bodyParser.urlencoded( {extended: true} ));
 app.use(cookieParser());
+app.use(express.static('assets'));
 
 app.get('/', (req, res) => {
   res.status(200).sendFile(path.resolve(__dirname, '../client/index.html'));
