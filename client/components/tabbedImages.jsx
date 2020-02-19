@@ -5,11 +5,13 @@ import ReactDOMServer from 'react-dom/server';
 export default class TabbedImages extends Component {
     constructor(props) {
         super(props);
-
+      this.state = {
+        taggedImages: []
+      }
     }
 
 componentDidMount() {
-  let predictions;
+  let predictions;  
   const predictImage = async (image) => {
     console.log("Model loading...");
     const model = await mobilenet.load();
@@ -21,43 +23,43 @@ componentDidMount() {
       
   }
   let images = document.getElementsByClassName('image')
-  let taggedImages = [];
   const imageTagger = async (images) => {
+    let newTaggedImages = [...this.state.taggedImages];
     for (let i = 0; i < images.length; i += 1) {
       let image = images[i];
-      console.log(image)
+      console.log(images)
       await predictImage(image);
-      taggedImages.push(
-        <div>
-          {image}
-          <label> {predictions[0].className + '.png'} </label>
-        </div>
-        ) 
+      let newImageUrl = [predictions[0].className.split(' ').join('').split(',').join('')] + '.' + image.src.split('.')[1];
+      console.log(newImageUrl)
+      console.log('before' , this.state.taggedImages)
+      newTaggedImages.push((<div>
+        {this.props.images[i]}
+        <label> {newImageUrl} </label>
+      </div>))
+      
+      console.log('after', this.state.taggedImages)
+
+      // taggedImages.push(
+        
+      //   ) 
       }
+      this.setState({
+        taggedImages: newTaggedImages
+      })
   }
   imageTagger(images);
-  // images = images.forEach(async (image) => {
-  //   console.log(image)
-  // //call predictImage on each image tag, and push the new labelled image to array for render
-  // image = ReactDOMServer.renderToStaticMarkup(image);
-  // console.log(image)
-  // await predictImage(image);
-  // taggedImages.push(
-  //   <div>
-  //     {image}
-  //     <label> {predictions[0].className + '.png'} </label>
-  //   </div>
-  //   ) 
-  // })
-  //need to dispatch filenames to states
+ 
+  //need to dispatch new array to state, also new fileNames
 }
 render() {
-  let taggedImages =  taggedImages || this.props.images;
-
 
   return (
+
     <div>
-       {taggedImages}
+      {
+      (this.state.taggedImages.length > 0) ? this.state.taggedImages : this.props.images
+      
+      } 
     </div>
    
     )
