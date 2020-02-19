@@ -24,6 +24,11 @@ app.get('/imageTags', (req, res) => {
 
 });
 
+// use this route to test or debug individual middleware one by one
+app.post('/test', userController.createUser, (req, res) => {
+  res.redirect('/');
+});
+
 app.post('/login', userController.verifyUser, authController.createUserCookie, authController.startSession, (req, res) => {
   res.redirect('/');
 });

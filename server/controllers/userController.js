@@ -1,6 +1,6 @@
 const db = require('../db/postgresDB');
 
-userController = {};
+const userController = {};
 
 userController.checkUnique = (req, res, next) => {
   const { username, email } = req.body;
