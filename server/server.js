@@ -27,7 +27,7 @@ app.post('/login', userController.verifyUser, (req, res) => {
 });
 
 app.post('/signup', userController.checkUnique, userController.createUser, (req, res) => {
-  res.status(200);
+  res.redirect('/');
 });
 
 app.use('*', (req, res) => {
