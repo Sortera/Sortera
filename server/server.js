@@ -6,12 +6,13 @@ const PORT = 3000;
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const userController = require('./controllers/userController');
+const authController = require('./controllers/authController');
 
 app.use(bodyParser.urlencoded( {extended: true} ));
 app.use(cookieParser());
 app.use(express.static('assets'));
 
-app.get('/', (req, res) => {
+app.get('/', authController.createGeneralCookie, (req, res) => {
   res.status(200).sendFile(path.resolve(__dirname, '../client/index.html'));
 });
 
@@ -23,11 +24,11 @@ app.get('/imageTags', (req, res) => {
 
 });
 
-app.post('/login', userController.verifyUser, (req, res) => {
+app.post('/login', userController.verifyUser, authController.createUserCookie, authController.startSession, (req, res) => {
   res.redirect('/');
 });
 
-app.post('/signup', userController.checkUnique, userController.createUser, (req, res) => {
+app.post('/signup', userController.checkUnique, userController.createUser, authController.createUserCookie, authController.startSession, (req, res) => {
   res.redirect('/');
 });
 
