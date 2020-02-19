@@ -6,7 +6,8 @@ class tabbedImages extends Component {
         super(props);
 
     }
-render() {
+
+componentDidMount() {
   let predictions;
   const predictImage = async (image) => {
     console.log("Model loading...");
@@ -22,18 +23,24 @@ render() {
   let taggedImages = [];
   
   images = images.forEach((image) => {
-  
+  //call predictImage on each image tag, and push the new labelled image to array for render
   await predictImage(image);
   taggedImages.push(
     <div>
       {image}
-      <label> {predictions[0].className} </label>
+      <label> {predictions[0].className + '.png'} </label>
     </div>
     ) 
   })
+  //need to dispatch filenames to state
+}
+render() {
+  
 
 
-  return ({taggedImages})
+  return (
+    {taggedImages}
+    )
 }
 
 
