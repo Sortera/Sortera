@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
-import App from './App.jsx';
+import App from './containers/App.jsx';
 import store from './store';
 
 // Since we are using HtmlWebpackPlugin WITHOUT a template,
