@@ -1,8 +1,8 @@
 
+dbController = {};
 
 
-
-userModelController.createUser = (req, res, next) => {
+dbController.createUser = (req, res, next) => {
     const { username, password} = req.body;
     console.log('req.body: ', req.body);
     const text = `
@@ -15,3 +15,5 @@ userModelController.createUser = (req, res, next) => {
       .catch(err => console.log(err));
     return next();
   };
+
+  module.exports = dbController;
