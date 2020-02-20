@@ -5,7 +5,7 @@ export const addImage = files => ({
   payload: files
 });
 
-export const addTabbedImages = (formData, newUrls) => ({
+export const addTabbedImages = (formData) => ({
   type: types.ADD_TABBED_IMAGES,
-  payload: [formData, newUrls]
+  payload: formData
 })

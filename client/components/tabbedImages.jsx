@@ -50,12 +50,12 @@ export default class TabbedImages extends Component {
       let formData = new FormData();
       console.log(this.props.images)
       this.props.images.forEach((image, i) => {
-        formData.append(i, image)
+        formData.append(newUrls[i], image)
       })
       for (var key of formData.entries()) {
         console.log(key[0] + ', ' + key[1])
       }
-      this.props.sendToReducer(formData, newUrls)
+      this.props.sendToReducer(formData)
       // console.log('sending this to reducer', images, newUrls)
     }
     // console.log('before calling imageTagger')

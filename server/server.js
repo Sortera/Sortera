@@ -16,6 +16,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(express.static('assets'));
 app.use(formData.parse())
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get('/', authController.createGeneralCookie, (req, res) => {
   res.status(200).sendFile(path.resolve(__dirname, '../client/index.html'));
