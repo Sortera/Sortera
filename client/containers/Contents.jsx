@@ -5,10 +5,18 @@ import * as actions from '../actions/actions'
 import { connect } from 'react-redux';
 
 const mapStateToProps = store => ({
-  });
+});
   
   const mapDispatchToProps = dispatch => ({
-    onSubmit: (images) => { dispatch(actions.addImage(images)) },
+    onChange: (e) => { 
+      e.preventDefault();
+      console.log(e.value)
+      console.log('array of files?', e.target.files)
+      dispatch(actions.addImage(e.target.files)) 
+  },
+  onSubmit: (e) => {
+      e.preventDefault();
+  }
    
   });
 
@@ -20,15 +28,12 @@ class Contents extends Component {
     render () {
         
         return (
-            <div className="contents">
-                <ImageUpload onSubmit={this.props.onSubmit}/>
+            <div className="contents" style={{height:"100%"}}>
+                <ImageUpload onSubmit={this.props.onSubmit} onChange={this.props.onChange}/>
             </div>
         )
         
     }
 }
 
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps,
-  )(Contents);
+export default connect(mapStateToProps, mapDispatchToProps)(Contents);
