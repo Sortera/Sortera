@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "../styles.css"
+import "../../assets/buttonStyles.css"
 import ImageUpload from "../components/ImageUpload.jsx"
 import * as actions from '../actions/actions'
 import { connect } from 'react-redux';
