@@ -10,7 +10,7 @@ export default class TabbedImages extends Component {
       }
     }
 
-componentDidMount() {
+componentDidUpdate() {
   let predictions;  
   const predictImage = async (image) => {
     console.log("Model loading...");
@@ -25,15 +25,17 @@ componentDidMount() {
   let images = document.getElementsByClassName('image')
   const imageTagger = async (images) => {
     let newTaggedImages = [...this.state.taggedImages];
+    if (newTaggedImages.length === 0) {
     for (let i = 0; i < images.length; i += 1) {
       let image = images[i];
-      console.log(images)
+      console.log('in component did mount tabbedimages', images)
       await predictImage(image);
-      let newImageUrl = [predictions[0].className.split(' ').join('').split(',').join('')] + '.' + image.src.split('.')[1];
+      console.log('img.src', image.src)
+      let newImageUrl = [predictions[0].className.split(' ').join('').split(',').join('')] + '.' + this.props.images[i].name.split('.')[1];
       console.log(newImageUrl)
       console.log('before' , this.state.taggedImages)
       newTaggedImages.push((<div>
-        <img src={this.props.images[i].path} className={'image'}></img>
+        <img src={image.src} className={'image'}></img>
         <label> {newImageUrl} </label>
       </div>))
       
@@ -43,10 +45,12 @@ componentDidMount() {
         
       //   ) 
       }
+    }
       this.setState({
         taggedImages: newTaggedImages
       })
   }
+  console.log('before calling imageTagger')
   imageTagger(images);
  
   //need to dispatch new array to state, also new fileNames
@@ -55,10 +59,11 @@ render() {
   let originalImages = this.props.images;
   console.log('in tabbedImages', originalImages)
   // let values = Array.entries(originalImages);
-  // console.log('values', values)
+  // console.log('values', values);
   const imageElements = originalImages.map(image => {
-    return <img src={image.path} className={'image'}></img>
+    return <img src={URL.createObjectURL(image)} className={'image'}></img>
   }) 
+  console.log('is there taggedimages', this.state.taggedImages)
   return (
 
     <div>
