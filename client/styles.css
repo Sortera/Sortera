@@ -74,4 +74,16 @@ body{
     transform: scale(1);
     transition: transform .2s linear .3s;
   }
-  
+  ::-webkit-file-upload-button{
+    position: relative;
+    color: white;
+    font-weight: 700;
+    width: 35%;
+    border: none;
+    padding: 5px 0;
+    cursor: pointer;
+    outline: none;
+    border-radius: 50px;
+    background: linear-gradient(#3d42c2, #373bae, #31349b);
+    transition: .5s;
+  }
