@@ -15,18 +15,16 @@ export default class TabbedImages extends Component {
     let newTaggedImages = [...this.state.taggedImages]; 
     let newUrls = [];
     if (newTaggedImages.length === 0) {
-    let predictions;  
-    const predictImage = async (image) => {
-      console.log("Model loading...");
-      const model = await mobilenet.load();
-      console.log("Model is loaded!")
-      predictions = await model.classify(image);
-      console.log('Predictions: ', predictions);
-    }
-    let images = document.getElementsByClassName('image')
-    const imageTagger = async (images) => {
-      
-      
+      let predictions;  
+      const predictImage = async (image) => {
+        console.log("Model loading...");
+        const model = await mobilenet.load();
+        console.log("Model is loaded!")
+        predictions = await model.classify(image);
+        console.log('Predictions: ', predictions);
+      }
+      let images = document.getElementsByClassName('image');
+      const imageTagger = async (images) => {
         for (let i = 0; i < images.length; i += 1) {
           let image = images[i];
           // console.log('in component did mount tabbedimages', images)
@@ -42,28 +40,26 @@ export default class TabbedImages extends Component {
           </div>));
           console.log('after', this.state.taggedImages);
         }
-      
-      this.setState({
-        taggedImages: newTaggedImages
-      });
-      //need to dispatch new array to state, also new fileNames
-      let formData = new FormData();
-      console.log(this.props.images)
-      this.props.images.forEach((image, i) => {
-        formData.append(newUrls[i], image)
-      })
-      for (var key of formData.entries()) {
-        console.log(key[0] + ', ' + key[1])
+        
+        this.setState({
+          taggedImages: newTaggedImages
+        });
+        //need to dispatch new array to state, also new fileNames
+        let formData = new FormData();
+        console.log(this.props.images)
+        this.props.images.forEach((image, i) => {
+          formData.append(newUrls[i], image)
+        });
+        for (var key of formData.entries()) {
+          console.log(key[0] + ', ' + key[1]);
+        }
+        this.props.sendToReducer(formData);
+        // console.log('sending this to reducer', images, newUrls)
       }
-      this.props.sendToReducer(formData)
-      // console.log('sending this to reducer', images, newUrls)
+      // console.log('before calling imageTagger')
+      imageTagger(images);
     }
-    // console.log('before calling imageTagger')
-    imageTagger(images);
-  
-    
   }
-}
 
   render() {
     let originalImages = this.props.images;
@@ -76,9 +72,7 @@ export default class TabbedImages extends Component {
     console.log('is there taggedimages', this.state.taggedImages);
     return (
       <div>
-        {
-        (this.state.taggedImages.length > 0) ? this.state.taggedImages : imageElements
-        } 
+        {(this.state.taggedImages.length > 0) ? this.state.taggedImages : imageElements} 
       </div>
     );
   }
