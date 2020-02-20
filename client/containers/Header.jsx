@@ -18,7 +18,7 @@ export default class Header extends Component {
                 <i className="fas fa-times" id="cancel"></i>
                 </label>
                 <ul>
-                    <li><a href="#">Sign In</a></li>
+                    <li><a href="signin">Sign In</a></li>
                     <li><a href="#">Sign Up</a></li>
                 </ul>
             </nav>

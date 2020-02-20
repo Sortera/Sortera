@@ -1,14 +1,14 @@
 
 nav{
     height: 80px;
-	background: linear-gradient(#31349b, #373bae, #3d42c2);
+    background: linear-gradient(#31349b, #373bae, #3d42c2);
 }
 nav h1{
     position: absolute;
     font-size: 50px;
     font-style: system-ui;
     font-weight: 700;
-	top: 10px;
+	  top: 10px;
     left: 12%;
     color: white;
 }
@@ -64,11 +64,6 @@ label #cancel{
   }
 }
 @media (max-width: 944px){
-  nav img{
-    width: 130px;
-		top: 20px;
-		left: 6%;
-  }
 	nav ul li a{
 		font-size: 17px;
 	}

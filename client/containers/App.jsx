@@ -4,6 +4,7 @@ import Header from './Header.jsx'
 import Contents from './Contents.jsx'
 import "../../assets/styles.css"
 import "@babel/polyfill";
+import Login from "./Login.jsx";
 import { connect } from 'react-redux';
 
 const mapStateToProps = state => ({
@@ -32,7 +33,7 @@ class App extends Component {
       <div className="App" style={{height:"100vh"}}>
         <Header/>
         <Contents/>
-        {images}
+        <Login/>
       </div>
     );
   }
