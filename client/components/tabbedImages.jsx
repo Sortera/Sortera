@@ -33,7 +33,7 @@ componentDidMount() {
       console.log(newImageUrl)
       console.log('before' , this.state.taggedImages)
       newTaggedImages.push((<div>
-        {this.props.images[i]}
+        <img src={this.props.images[i].path} className={'image'}></img>
         <label> {newImageUrl} </label>
       </div>))
       
@@ -56,7 +56,7 @@ render() {
   let values = Object.values(originalImages);
   console.log('values', values)
   const imageElements = values.map(image => {
-    return <image src={image.path}></image>
+    return <img src={image.path} className={'image'}></img>
   }) 
   return (
 
