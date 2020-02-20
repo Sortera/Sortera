@@ -1,48 +1,21 @@
-import React, { Component } from "react";
-import "../../assets/buttonStyles.css"
-import ImageUpload from "../components/ImageUpload.jsx"
-import * as actions from '../actions/actions'
+import React, { Component } from 'react';
+import '../../assets/buttonStyles.css';
+import ImageUpload from '../components/ImageUpload.jsx';
+import * as actions from '../actions/actions';
 import { connect } from 'react-redux';
+import ZipForm from '../components/ZipForm.jsx';
 
-const mapStateToProps = store => ({
-  zippedFolder: null,
-});
-  
-const mapDispatchToProps = (dispatch, props) => ({
-  onChange: (e) => { 
+const mapStateToProps = store => ({});
+
+const mapDispatchToProps = dispatch => ({
+  onChange: e => {
     e.preventDefault();
-    console.log(e.value)
-    console.log('array of files?', e.target.files)
-    dispatch(actions.addImage(e.target.files)) 
+    console.log(e.value);
+    console.log('array of files?', e.target.files);
+    dispatch(actions.addImage(e.target.files));
   },
-  onSubmit: (e) => {
+  onSubmit: e => {
     e.preventDefault();
-    // set uploaded files to the server
-
-    // fetch('/zip')
-    // .then(res => res.json())
-    // .then(zippedFolder => {
-    //   console.log('zippedFolder: ', zippedFolder);
-    // });
-
-    console.log('event: ', event.target.files);
-
-    var zip_file_path = '/sorteraSortedPhotos'; //put inside "" your path with file.zip
-    var zip_file_name = '/zippedFile.zip'; //put inside "" file name or something
-    var a = document.createElement('a');
-    document.body.appendChild(a);
-    a.style = "display: none";
-    a.href = zip_file_path;
-    a.download = zip_file_name;
-    a.click();
-    document.body.removeChild(a);
-  },
-  getData: () => {
-    fetch('/zip')
-    .then(res => res.json())
-    .then(zippedFolder => {
-      console.log('zippedFolder: ', zippedFolder);
-    })
   }
 });
 
@@ -50,11 +23,15 @@ class Contents extends Component {
   constructor(props) {
     super(props);
   }
-  
-  render () {
+
+  render() {
     return (
-      <div className="contents">
-        <ImageUpload onSubmit={this.props.onSubmit} onChange={this.props.onChange}/>
+      <div className="contents" style={{ height: '100%' }}>
+        <ImageUpload
+          onSubmit={this.props.onSubmit}
+          onChange={this.props.onChange}
+        />
+        <ZipForm />
       </div>
     );
   }
