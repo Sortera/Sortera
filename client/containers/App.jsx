@@ -33,7 +33,8 @@ class App extends Component {
       <div className="App" style={{height:"100vh"}}>
         <Header/>
         <Contents/>
-        <Login/>
+        {images}
+        {/* <Login/> */}
       </div>
     );
   }
