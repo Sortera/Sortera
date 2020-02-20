@@ -5,7 +5,7 @@ import * as actions from '../actions/actions'
 import { connect } from 'react-redux';
 
 const mapStateToProps = store => ({
-  });
+});
   
   const mapDispatchToProps = dispatch => ({
     onChange: (e) => { 
@@ -37,7 +37,4 @@ class Contents extends Component {
     }
 }
 
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps,
-  )(Contents);
+export default connect(mapStateToProps, mapDispatchToProps)(Contents);
