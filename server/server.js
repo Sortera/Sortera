@@ -7,16 +7,29 @@ const PORT = 3000;
 const cookieParser = require('cookie-parser');
 const userController = require('./controllers/userController');
 const authController = require('./controllers/authController');
+const imgController = require('./controllers/imgController');
+const formData = require('express-form-data')
+const bodyParser = require('body-parser');
 
+app.use(bodyParser.json());
 app.use(express.json());
 app.use(cookieParser());
 app.use(express.static('assets'));
+app.use(formData.parse())
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get('/', authController.createGeneralCookie, (req, res) => {
   res.status(200).sendFile(path.resolve(__dirname, '../client/index.html'));
 });
 
-app.post('/images', (req, res) => {});
+app.post('/images', imgController.addTaggedImages, (req, res) => {
+  console.log('yay it came back')
+  res.status(200).send('yay')
+});
+// app.post('/images', (req, res) => {
+//   // console.log('got to post', req)
+//   res.status(200).send('got to post')
+// })
 
 app.get('/imageTags', (req, res) => {});
 
@@ -59,3 +72,5 @@ app.use((err, req, res, next) => {
 // });
 
 app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
+
+module.exports = app;
