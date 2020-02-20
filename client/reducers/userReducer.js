@@ -14,7 +14,7 @@ const initialState = {
 };
 
 const userReducer = (state = initialState, action) => {
-  let { images } = state;
+  let images;
 
   switch (action.type) {
     case types.ADD_IMAGE:
