@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "../styles.css"
+import "../../assets/buttonStyles.css"
 import ImageUpload from "../components/ImageUpload.jsx"
 export default class Contents extends Component {
     constructor(props) {
@@ -8,7 +8,6 @@ export default class Contents extends Component {
     
     render () {
         
-
         return (
             <div className="contents">
                 <ImageUpload />
