@@ -7,6 +7,7 @@ const PORT = 3000;
 const cookieParser = require('cookie-parser');
 const userController = require('./controllers/userController');
 const authController = require('./controllers/authController');
+const imgController = require('./controllers/imgController');
 
 app.use(express.json());
 app.use(cookieParser());
@@ -19,6 +20,10 @@ app.get('/', authController.createGeneralCookie, (req, res) => {
 app.post('/images', (req, res) => {});
 
 app.get('/imageTags', (req, res) => {});
+
+app.get('/zip', imgController.addTaggedImages, (req, res) => {
+  return res.status(200).json(res.locals.zippedFolder);
+});
 
 // use this route to test or debug individual middleware one by one
 app.post('/test', userController.createUser, (req, res) => {
