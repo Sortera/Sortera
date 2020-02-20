@@ -74,7 +74,6 @@ componentDidUpdate() {
     imageTagger(images);
     //need to dispatch new array to state, also new fileNames
   }
-<<<<<<< HEAD
   console.log('before calling imageTagger')
   imageTagger(images);
  
@@ -101,8 +100,6 @@ render() {
     )
 }
 
-=======
->>>>>>> master
 
   render() {
     let originalImages = this.props.images;
