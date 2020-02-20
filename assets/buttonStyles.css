@@ -4,7 +4,7 @@ body {
 }
 .center {
   position: absolute;
-  top: 50%;
+  top: 20%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 310px;
@@ -15,9 +15,10 @@ body {
 }
 .center button {
   position: relative;
-  width: 100%;
-  border: none;
-  padding: 5px 0;
+  width: 110%;
+  border-style: solid;
+  border-color: rgb(255, 115, 1);
+  border-radius: 1rem;
   cursor: pointer;
   outline: none;
   border-radius: 50px;
@@ -32,7 +33,9 @@ button p {
   font-size: 22px;
   font-weight: 700;
   text-transform: uppercase;
-  margin: 15px;
+  padding: 0.7rem;
+  padding-bottom: 1rem;
+  margin-top: -0.2rem;
 }
 button .loading,
 button .fa {
@@ -79,7 +82,7 @@ button .fa {
   position: relative;
   color: white;
   font-weight: 700;
-  width: 35%;
+  width: 40%;
   border: none;
   padding: 5px 0;
   cursor: pointer;
@@ -94,7 +97,7 @@ button .fa {
   flex-wrap: wrap;
   border-width: 0.2rem;
   width: fit-content;
-  top: 65%;
+  top: 90%;
   left: 55%;
   transform: translate(-50%, -50%);
   transition: all 0.3s ease 0.3s;
@@ -118,7 +121,6 @@ button .fa {
   border-radius: 1rem;
   margin-left: 1.7rem;
   margin-top: 0.7rem;
-  border-width: 0.2rem;
   color: white;
 }
 #zipButton:hover {
@@ -127,4 +129,12 @@ button .fa {
 #zipIcon {
   margin-left: 0.5rem;
   font-size: x-large;
+}
+#chooseFiles {
+  margin-left: 1rem;
+}
+#uploadIcon {
+  font-size: xx-large;
+  color: white;
+  margin-left: 0.6rem;
 }

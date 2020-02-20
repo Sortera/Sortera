@@ -11,7 +11,7 @@ export default class ZipForm extends Component {
         <input id="zipInput" type="text" />
         <button id="zipButton">
           Zip Files
-          <i id="zipIcon" class="far fa-file-archive"></i>
+          <i id="zipIcon" className="far fa-file-archive"></i>
         </button>
       </div>
     );
