@@ -29,6 +29,7 @@ imgController.addTaggedImages = (req, res, next) => {
   readStream.on('close', () => res.end());
   // Pipe the contents of the readStream directly to the response
   readStream.pipe(res.locals.zippedFolder);
+  return next();
 }
 
 module.exports = imgController;

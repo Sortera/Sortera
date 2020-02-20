@@ -5,9 +5,10 @@ import * as actions from '../actions/actions'
 import { connect } from 'react-redux';
 
 const mapStateToProps = store => ({
+  zippedFolder: null,
 });
   
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch, props) => ({
   onChange: (e) => { 
     e.preventDefault();
     console.log(e.value)
@@ -17,6 +18,31 @@ const mapDispatchToProps = dispatch => ({
   onSubmit: (e) => {
     e.preventDefault();
     // set uploaded files to the server
+
+    // fetch('/zip')
+    // .then(res => res.json())
+    // .then(zippedFolder => {
+    //   console.log('zippedFolder: ', zippedFolder);
+    // });
+
+    console.log('event: ', event.target.files);
+
+    var zip_file_path = '/sorteraSortedPhotos'; //put inside "" your path with file.zip
+    var zip_file_name = '/zippedFile.zip'; //put inside "" file name or something
+    var a = document.createElement('a');
+    document.body.appendChild(a);
+    a.style = "display: none";
+    a.href = zip_file_path;
+    a.download = zip_file_name;
+    a.click();
+    document.body.removeChild(a);
+  },
+  getData: () => {
+    fetch('/zip')
+    .then(res => res.json())
+    .then(zippedFolder => {
+      console.log('zippedFolder: ', zippedFolder);
+    })
   }
 });
 

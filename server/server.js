@@ -22,7 +22,8 @@ app.post('/images', (req, res) => {});
 app.get('/imageTags', (req, res) => {});
 
 app.get('/zip', imgController.addTaggedImages, (req, res) => {
-  return res.status(200).json(res.locals.zippedFolder);
+  console.log('res.locals.zippedFolder: ', res.locals.zippedFolder);
+  return res.status(200).send(res.locals.zippedFolder);
 });
 
 // use this route to test or debug individual middleware one by one
