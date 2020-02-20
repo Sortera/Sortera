@@ -9,7 +9,10 @@ export default class ZipForm extends Component {
     return (
       <div id="zipFormContainer">
         <input id="zipInput" type="text" />
-        <button id="zipButton">Zip Files</button>
+        <button id="zipButton">
+          Zip Files
+          <i id="zipIcon" class="far fa-file-archive"></i>
+        </button>
       </div>
     );
   }

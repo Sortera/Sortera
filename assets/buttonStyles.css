@@ -89,21 +89,42 @@ button .fa {
   transition: 0.5s;
 }
 #zipFormContainer {
-  border: solid;
   display: flex;
   position: absolute;
   flex-wrap: wrap;
   border-width: 0.2rem;
   width: fit-content;
-  border-color: black;
   top: 65%;
-  left: 34%;
-  transform: translate(-4%, 20%);
+  left: 55%;
+  transform: translate(-50%, -50%);
   transition: all 0.3s ease 0.3s;
-  /* margin-top: 60%;
-  margin-left: 30%; */
 }
 #zipInput {
-  width: 300px;
-  height: 30px;
+  width: 30rem;
+  height: 3rem;
+  border-radius: 3rem;
+  font-size: large;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  margin-top: 1rem;
+}
+#zipButton {
+  width: 9rem;
+  font-size: 1.3rem;
+  font-weight: bold;
+  background-color: #3213a5;
+  border-color: rgb(255, 115, 1);
+  border-style: solid;
+  border-radius: 1rem;
+  margin-left: 1.7rem;
+  margin-top: 0.7rem;
+  border-width: 0.2rem;
+  color: white;
+}
+#zipButton:hover {
+  background: linear-gradient(#31349b, #373bae, #3d42c2);
+}
+#zipIcon {
+  margin-left: 0.5rem;
+  font-size: x-large;
 }
