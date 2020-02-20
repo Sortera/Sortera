@@ -10,15 +10,8 @@ export default class App extends Component {
     }
     
     render () {
-<<<<<<< HEAD:client/App.jsx
-        //if (this.state."image"List) {
-            //let "image"s = <tabbed"Image"s "image"s={this.state."image"List}></tabbed"Image"s>
-        //}
-
-        let images = <TabbedImages images={[<img src='./assets/pineapple.png' className={"image"}></img>,<img src='./assets/sunset.jpg' className={"image"}></img>,<img src='./assets/apple.jpg' className={"image"}></img>]}></TabbedImages>
-=======
-        let images = <TabbedImages images={[<img src='./assets/pineapple.png' className={"image"}></img>,<img src='./assets/trees.jpg' className={"image"}></img>,<img src='./assets/seth-rogen-premiere-this-is-the-end-04-copy.png' className={"image"}></img>]}></TabbedImages>
->>>>>>> master:client/containers/App.jsx
+        // let images = <TabbedImages images={[<img src='./assets/pineapple.png' className={"image"}></img>,<img src='./assets/trees.jpg' className={"image"}></img>,<img src='./assets/seth-rogen-premiere-this-is-the-end-04-copy.png' className={"image"}></img>]}></TabbedImages>
+        let images = <TabbedImages images={{0: {path: './assets/pineapple.png'}}, {1: {path: './assets/apple.jpg'}}}></TabbedImages>
 
         return (
             <div className="App">

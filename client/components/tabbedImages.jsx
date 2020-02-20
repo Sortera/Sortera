@@ -52,12 +52,17 @@ componentDidMount() {
   //need to dispatch new array to state, also new fileNames
 }
 render() {
-
+  let originalImages = this.props.images;
+  let values = Object.values(originalImages);
+  console.log('values', values)
+  const imageElements = values.map(image => {
+    return <image src={image.path}></image>
+  }) 
   return (
 
     <div>
       {
-      (this.state.taggedImages.length > 0) ? this.state.taggedImages : this.props.images
+      (this.state.taggedImages.length > 0) ? this.state.taggedImages : imageElements
       
       } 
     </div>
