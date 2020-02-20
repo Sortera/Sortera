@@ -2,7 +2,9 @@ import React, { Component } from "react";
 import TabbedImages from '../components/TabbedImages.jsx'
 import Header from './Header.jsx'
 import Contents from './Contents.jsx'
+import "../../assets/styles.css"
 import "@babel/polyfill";
+import Login from "./Login.jsx";
 import { connect } from 'react-redux';
 
 const mapStateToProps = state => ({
@@ -26,13 +28,13 @@ class App extends Component {
     console.log('app props', this.props)
     console.log('state', this.props.state)
     let images = <TabbedImages images={this.props.images}></TabbedImages>
-    // let images = <TabbedImages images={{0: {path: './assets/pineapple.png'}, 1: {path: './assets/apple.jpg'}}}></TabbedImages>
 
     return (
-      <div className="App">
+      <div className="App" style={{height:"100vh"}}>
         <Header/>
         <Contents/>
         {images}
+        {/* <Login/> */}
       </div>
     );
   }
