@@ -8,4 +8,4 @@ export const addImage = files => ({
 export const addTabbedImages = (formData) => ({
   type: types.ADD_TABBED_IMAGES,
   payload: formData
-})
+});
