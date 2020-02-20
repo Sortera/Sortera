@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "../styles.css"
+import "../../assets/buttonStyles.css"
 import ImageUpload from "../components/ImageUpload.jsx"
 import * as actions from '../actions/actions'
 import { connect } from 'react-redux';
@@ -27,9 +27,8 @@ class Contents extends Component {
     
     render () {
         
-
         return (
-            <div className="contents">
+            <div className="contents" style={{height:"100%"}}>
                 <ImageUpload onSubmit={this.props.onSubmit} onChange={this.props.onChange}/>
             </div>
         )

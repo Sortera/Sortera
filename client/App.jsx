@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import TabbedImages from './components/TabbedImages.jsx'
+import "../assets/styles.css"
 import "@babel/polyfill";
 
 export default class App extends Component {
