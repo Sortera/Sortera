@@ -2,7 +2,9 @@ import React, { Component } from "react";
 import TabbedImages from '../components/TabbedImages.jsx'
 import Header from './Header.jsx'
 import Contents from './Contents.jsx'
+import "../../assets/styles.css"
 import "@babel/polyfill";
+import Login from "./Login.jsx";
 import { connect } from 'react-redux';
 import * as actions from '../actions/actions'
 
@@ -33,10 +35,11 @@ class App extends Component {
     // let images = <TabbedImages images={{0: {path: './assets/pineapple.png'}, 1: {path: './assets/apple.jpg'}}}></TabbedImages>
 
     return (
-      <div className="App">
+      <div className="App" style={{height:"100vh"}}>
         <Header/>
         <Contents/>
         {images}
+        {/* <Login/> */}
       </div>
     );
   }
