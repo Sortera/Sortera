@@ -7,22 +7,34 @@ import { connect } from 'react-redux';
 const mapStateToProps = store => ({
 });
   
-const mapDispatchToProps = dispatch => ({
-  onSubmit: (images) => { dispatch(actions.addImage(images)) },
-});
+  const mapDispatchToProps = dispatch => ({
+    onChange: (e) => { 
+      e.preventDefault();
+      console.log(e.value)
+      console.log('array of files?', e.target.files)
+      dispatch(actions.addImage(e.target.files)) 
+  },
+  onSubmit: (e) => {
+      e.preventDefault();
+  }
+   
+  });
 
 class Contents extends Component {
-  constructor(props) {
-      super(props);
-  }
-  
-  render () {
-    return (
-      <div className="contents">
-        <ImageUpload onSubmit={this.props.onSubmit}/>
-      </div>
-    );
-  }
+    constructor(props) {
+        super(props);
+    }
+    
+    render () {
+        
+
+        return (
+            <div className="contents">
+                <ImageUpload onSubmit={this.props.onSubmit} onChange={this.props.onChange}/>
+            </div>
+        )
+        
+    }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Contents);
