@@ -27,12 +27,10 @@ const userReducer = (state = initialState, action) => {
       };
     case types.ADD_TABBED_IMAGES:
       tabbedImages = [...action.payload]
+      console.log('in reducer', tabbedImages)
       fetch('/images', {
         method: 'POST', // *GET, POST, PUT, DELETE, etc.
-        body: JSON.stringify({tabbedImages}),
-        headers: {
-          'Content-Type': 'application/json'
-        },
+        body: JSON.stringify({'key' : tabbedImages[1]}),
         
       })
       .then((res)=> {

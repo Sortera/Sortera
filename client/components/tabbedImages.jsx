@@ -33,7 +33,7 @@ export default class TabbedImages extends Component {
           await predictImage(image);
           // console.log('img.src', image.src);
           let newImageUrl = [predictions[0].className.split(' ').join('').split(',').join('')] + '.' + this.props.images[i].name.split('.')[1];
-          // newUrls.push(newImageUrl);
+          newUrls.push(newImageUrl);
           // console.log(newImageUrl);
           // console.log('before' , this.state.taggedImages);
           newTaggedImages.push((<div>
@@ -47,7 +47,15 @@ export default class TabbedImages extends Component {
         taggedImages: newTaggedImages
       });
       //need to dispatch new array to state, also new fileNames
-      this.props.sendToReducer(this.props.images, newUrls)
+      let formData = new FormData();
+      console.log(this.props.images)
+      this.props.images.forEach((image, i) => {
+        formData.append(i, image)
+      })
+      for (var key of formData.entries()) {
+        console.log(key[0] + ', ' + key[1])
+      }
+      this.props.sendToReducer(formData, newUrls)
       // console.log('sending this to reducer', images, newUrls)
     }
     // console.log('before calling imageTagger')

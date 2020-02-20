@@ -8,11 +8,12 @@ const imgController = {};
 
 imgController.addTaggedImages = (req, res, next) => {
     console.log('in add images')
-    const files = req.body.tabbedImages[0];
-    const urls = req.body.tabbedImages[1];
+    console.log('req.body', req.body)
+    const files = req.body[0];
+    const urls = req.body[1];
     console.log('files' ,files)
-    console.log('urls', urls)
     fs.mkdir('taggedPhotoFolder')
+
     files.forEach((file, idx) => {
         var dir = path.dirname(file);
         console.log(file, dir + "/" + urls[idx])

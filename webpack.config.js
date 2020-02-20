@@ -8,6 +8,13 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js'
   },
+  devServer: {
+    historyApiFallback: true,
+    proxy: {
+      open: true,
+      '/images': 'http://localhost:3000',
+    }
+  },
   module: {
     rules: [
       {
