@@ -1,89 +1,109 @@
-body{
-    background: #e9fcfc;
-    font-family: montserrat;
-  }
-  .center{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 310px;
-    padding: 0 50px;
-    text-align: center;
-    box-sizing: border-box;
-    transition: all .3s ease .3s;
-  }
-  .center button{
-    position: relative;
-    width: 100%;
-    border: none;
-    padding: 5px 0;
-    cursor: pointer;
-    outline: none;
-    border-radius: 50px;
-    background: linear-gradient(#3d42c2, #373bae, #31349b);
-    transition: .5s;
-  }
-  button:hover{
-    background: linear-gradient(#31349b, #373bae, #3d42c2);
-  }
-  button p{
-    color: white;
-    font-size: 22px;
-    font-weight: 700;
-    text-transform: uppercase;
-    margin: 15px;
-  }
-  button .loading, button .fa{
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-  }
-  button .loading{
-    width: 0%;
-    border-radius: 50px;
-    background: linear-gradient(#3d42c2, #373bae, #31349b);
-  }
-  button .fa{
-    color: white;
-    font-size: 35px;
-    line-height: 65px;
-    transform: scale(0);
-  }
-  .center.active{
-    padding: 0;
-  }
-  .center.active button{
-    background: #d9d9d9;
-    margin-top: 0;
-  }
-  .center.active button p{
-    display: none;
-  }
-  .center.active button .loading{
-    width: 100%;
-    transition: all 2.7s ease .6s;
-  }
-  .center.active button.success{
-    padding: 35px 0;
-    width: 250px;
-  }
-  .center.active button.success .fa{
-    transform: scale(1);
-    transition: transform .2s linear .3s;
-  }
-  ::-webkit-file-upload-button{
-    position: relative;
-    color: white;
-    font-weight: 700;
-    width: 35%;
-    border: none;
-    padding: 5px 0;
-    cursor: pointer;
-    outline: none;
-    border-radius: 50px;
-    background: linear-gradient(#3d42c2, #373bae, #31349b);
-    transition: .5s;
-  }
+body {
+  background: #e9fcfc;
+  font-family: montserrat;
+}
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 310px;
+  padding: 0 50px;
+  text-align: center;
+  box-sizing: border-box;
+  transition: all 0.3s ease 0.3s;
+}
+.center button {
+  position: relative;
+  width: 100%;
+  border: none;
+  padding: 5px 0;
+  cursor: pointer;
+  outline: none;
+  border-radius: 50px;
+  background: linear-gradient(#3d42c2, #373bae, #31349b);
+  transition: 0.5s;
+}
+button:hover {
+  background: linear-gradient(#31349b, #373bae, #3d42c2);
+}
+button p {
+  color: white;
+  font-size: 22px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin: 15px;
+}
+button .loading,
+button .fa {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+button .loading {
+  width: 0%;
+  border-radius: 50px;
+  background: linear-gradient(#3d42c2, #373bae, #31349b);
+}
+button .fa {
+  color: white;
+  font-size: 35px;
+  line-height: 65px;
+  transform: scale(0);
+}
+.center.active {
+  padding: 0;
+}
+.center.active button {
+  background: #d9d9d9;
+  margin-top: 0;
+}
+.center.active button p {
+  display: none;
+}
+.center.active button .loading {
+  width: 100%;
+  transition: all 2.7s ease 0.6s;
+}
+.center.active button.success {
+  padding: 35px 0;
+  width: 250px;
+}
+.center.active button.success .fa {
+  transform: scale(1);
+  transition: transform 0.2s linear 0.3s;
+}
+::-webkit-file-upload-button {
+  position: relative;
+  color: white;
+  font-weight: 700;
+  width: 35%;
+  border: none;
+  padding: 5px 0;
+  cursor: pointer;
+  outline: none;
+  border-radius: 50px;
+  background: linear-gradient(#3d42c2, #373bae, #31349b);
+  transition: 0.5s;
+}
+#zipFormContainer {
+  border: solid;
+  display: flex;
+  position: absolute;
+  flex-wrap: wrap;
+  border-width: 0.2rem;
+  width: fit-content;
+  border-color: black;
+  top: 65%;
+  left: 34%;
+  transform: translate(-4%, 20%);
+  transition: all 0.3s ease 0.3s;
+  /* margin-top: 60%;
+  margin-left: 30%; */
+}
+#zipInput {
+  width: 300px;
+  height: 30px;
+}
