@@ -9,7 +9,7 @@ export default class ImageUpload extends Component {
         
         return (
             <div className="center">
-                <form>
+                <form onSubmit={this.props.onSubmit}>
                 <input type="file" multiple="multiple" required></input>
                 <br/> <br/>
                 <button className="active" type="submit" >

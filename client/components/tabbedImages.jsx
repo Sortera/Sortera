@@ -53,9 +53,10 @@ componentDidMount() {
 }
 render() {
   let originalImages = this.props.images;
-  let values = Object.values(originalImages);
-  console.log('values', values)
-  const imageElements = values.map(image => {
+  console.log('in tabbedImages', originalImages)
+  // let values = Array.entries(originalImages);
+  // console.log('values', values)
+  const imageElements = originalImages.map(image => {
     return <img src={image.path} className={'image'}></img>
   }) 
   return (
