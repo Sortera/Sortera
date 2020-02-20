@@ -33,7 +33,7 @@ componentDidMount() {
       console.log(newImageUrl)
       console.log('before' , this.state.taggedImages)
       newTaggedImages.push((<div>
-        {this.props.images[i]}
+        <img src={this.props.images[i].path} className={'image'}></img>
         <label> {newImageUrl} </label>
       </div>))
       
@@ -52,12 +52,18 @@ componentDidMount() {
   //need to dispatch new array to state, also new fileNames
 }
 render() {
-
+  let originalImages = this.props.images;
+  console.log('in tabbedImages', originalImages)
+  // let values = Array.entries(originalImages);
+  // console.log('values', values)
+  const imageElements = originalImages.map(image => {
+    return <img src={image.path} className={'image'}></img>
+  }) 
   return (
 
     <div>
       {
-      (this.state.taggedImages.length > 0) ? this.state.taggedImages : this.props.images
+      (this.state.taggedImages.length > 0) ? this.state.taggedImages : imageElements
       
       } 
     </div>
