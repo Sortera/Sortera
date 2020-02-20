@@ -32,10 +32,12 @@ const userReducer = (state = initialState, action) => {
       fetch('/images', {
         method: 'POST', // *GET, POST, PUT, DELETE, etc.
         body: action.payload,
-       
-      })
-      .then((res)=> {
-          console.log('inside post then', res)})
+        // headers: {
+        //   'Content-Type': 'multipart/form-data'
+        // }
+        })
+        .then((res)=> console.log('inside post then', res))
+        .catch(err => console.log(err));
       return {
         ...state,
         tabbedImages

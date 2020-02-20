@@ -51,9 +51,9 @@ export default class TabbedImages extends Component {
           formData.append(newUrls[i], image)
         });
         for (var key of formData.entries()) {
-          console.log(key[0] + ', ' + key[1])
+          console.log(key[0] + ', ' + key[1]);
         }
-        this.props.sendToReducer(formData)
+        this.props.sendToReducer(formData);
         // console.log('sending this to reducer', images, newUrls)
       }
       // console.log('before calling imageTagger')

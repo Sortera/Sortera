@@ -8,7 +8,7 @@ export default class ImageUpload extends Component {
   render () {
     return (
       <div className="center">
-        <form onSubmit={this.props.onSubmit}>
+        <form onSubmit={this.props.onSubmit} /*encType="multipart/form-data" action="/upload"*/ >
         <input type="file" multiple="multiple" onChange={this.props.onChange} required></input>
         <br/> <br/>
         <button className="active" type="submit" >
