@@ -1,13 +1,9 @@
 const path = require('path');
 const fs = require('fs');
 const { zip } = require('zip-a-folder');
-
 const imgController = {};
 const formData = require('express-form-data')
-
 // imgController.addTagg
-
- 
 imgController.addTaggedImages = (req, res, next) => {
     console.log('in add images')
     console.log('req.body', req.body)
@@ -18,7 +14,6 @@ imgController.addTaggedImages = (req, res, next) => {
     fs.mkdirSync(path.join(__dirname , '/taggedPhotoFolder'), { recursive: true }, (err) => {
         if (err) console.log(err);
       });
-     
     files.forEach((file, idx) => {
     console.log('file is', file)
     const oldFileName = Object.values(file)[0].originalFilename;
@@ -41,10 +36,8 @@ imgController.addTaggedImages = (req, res, next) => {
     // });
     // fs.createReadStream(filePath).pipe(res);
   });
-
     //now zip that folder and send the zip somewhere
     class ZipAFolder {
- 
         static async main() {
             const response = await zip(__dirname + '/taggedPhotoFolder', __dirname + '/zippedFile.zip');
             console.log('response', response)
@@ -54,5 +47,4 @@ imgController.addTaggedImages = (req, res, next) => {
     ZipAFolder.main();
     return next();
 }
-
 module.exports = imgController;

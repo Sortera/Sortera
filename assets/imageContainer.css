@@ -15,6 +15,23 @@
   padding-right: 1rem;
   overflow-y: auto;
 }
+
+.image {
+  width: 50%;
+}
+
+#download-btn {
+  width: 9rem;
+  font-size: 1.3rem;
+  font-weight: bold;
+  background-color: #3213a5;
+  border-color: rgb(255, 115, 1);
+  border-style: solid;
+  border-radius: 1rem;
+  margin-left: 1.7rem;
+  margin-top: 0.7rem;
+  color: white;
+}
 #centerLogo {
   border-radius: 35%;
   height: 74%;

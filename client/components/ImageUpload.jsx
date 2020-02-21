@@ -20,7 +20,7 @@ export default class ImageUpload extends Component {
           <button className="active" type="submit">
             <p>
               upload file
-              <i id="uploadIcon" class="fas fa-arrow-circle-up"></i>
+              <i id="uploadIcon" className="fas fa-arrow-circle-up"></i>
             </p>
 
             <div className="loading"></div>
