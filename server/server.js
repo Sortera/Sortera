@@ -28,6 +28,7 @@ app.get('/', authController.createGeneralCookie, (req, res) => {
 app.post('/images', imgController.addTaggedImages, (req, res) => {
   console.log('yay it came back');
   console.log('res.locals.files: ', res.locals.files);
+  console.log('res.locals.paths: ', res.locals.paths);
   res.status(200).send('yay'); //.json(res.locals.files);
 });
 
