@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import '../../assets/imageContainer.css';
+import SorteraLogo from '../../assets/SorteraLogo.png';
 
 export default class ImageContainer extends Component {
   constructor(props) {
@@ -7,6 +8,10 @@ export default class ImageContainer extends Component {
   }
 
   render() {
-    return <div id="imageContainer">This is our image container</div>;
+    return (
+      <div id="imageContainer">
+        <img id="centerLogo" src={SorteraLogo} />
+      </div>
+    );
   }
 }
