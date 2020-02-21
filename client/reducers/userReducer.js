@@ -10,12 +10,14 @@ const initialState = {
   images: [],
   originalFilenames: [],
   generatedTags: [],
-  newFilenames: []
+  newFilenames: [],
+  zippedFile: false,
 };
 
 const userReducer = (state = initialState, action) => {
   let images;
-  let tabbedImages
+  let tabbedImages;
+  let zippedFile;
 
   switch (action.type) {
     case types.ADD_IMAGE:
@@ -29,20 +31,26 @@ const userReducer = (state = initialState, action) => {
     case types.ADD_TABBED_IMAGES:
       // tabbedImages = [...action.payload]
       console.log('in reducer payload', action.payload)
-      fetch('/images', {
-        method: 'POST', // *GET, POST, PUT, DELETE, etc.
-        body: action.payload,
-        // headers: {
-        //   'Content-Type': 'multipart/form-data'
-        // }
-        })
-        .then((res)=> console.log('inside post then', res))
-        .catch(err => console.log(err));
       return {
-        ...state,
-        tabbedImages
-      }
-      
+            ...state,
+            zippedFile: true,
+          }
+    //   fetch('/images', {
+    //     method: 'POST', // *GET, POST, PUT, DELETE, etc.
+    //     body: action.payload,
+       
+    //   })
+    //   .then((res)=> {
+    //       console.log('inside post then', res)
+    //     }).then(() => {
+    //       zippedFile = true;
+    //       console.log('does this run')
+    //   return {
+    //     ...state,
+    //     tabbedImages,
+    //     zippedFile,
+    //   }
+    // })
     default:
       return state;
   }

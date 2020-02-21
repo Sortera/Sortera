@@ -6,7 +6,9 @@ import { connect } from 'react-redux';
 import ZipForm from '../components/ZipForm.jsx';
 import ImageContainer from '../components/ImageContainer.jsx';
 
-const mapStateToProps = store => ({});
+const mapStateToProps = state => ({
+  zippedFile: state.zippedFile,
+});
 
 const mapDispatchToProps = dispatch => ({
   onChange: e => {
@@ -33,7 +35,7 @@ class Contents extends Component {
           onChange={this.props.onChange}
         />
         <ImageContainer images={this.props.images}/>
-        <ZipForm />
+        <ZipForm zippedFile={this.props.zippedFile}/>
       </div>
     );
   }
