@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import '../../assets/imageContainer.css';
+import TabbedImages from './TabbedImages.jsx';
 
 export default class ImageContainer extends Component {
   constructor(props) {
@@ -7,6 +8,8 @@ export default class ImageContainer extends Component {
   }
 
   render() {
-    return <div id="imageContainer">This is our image container</div>;
+    return <div id="imageContainer" >
+      <TabbedImages sendToReducer={this.props.sendToReducer} images={this.props.images}></TabbedImages>
+    </div>;
   }
 }
