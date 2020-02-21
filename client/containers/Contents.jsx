@@ -6,7 +6,10 @@ import { connect } from 'react-redux';
 import ZipForm from '../components/ZipForm.jsx';
 import ImageContainer from '../components/ImageContainer.jsx';
 
-const mapStateToProps = store => ({});
+const mapStateToProps = state => ({
+  zippedFile: state.zippedFile,
+  images: state.images,
+});
 
 const mapDispatchToProps = dispatch => ({
   onChange: e => {
@@ -17,7 +20,10 @@ const mapDispatchToProps = dispatch => ({
   },
   onSubmit: e => {
     e.preventDefault();
-  }
+  },
+  sendToReducer: (formData) => {
+    dispatch(actions.addTabbedImagesAsync(formData))
+  },
 });
 
 class Contents extends Component {
@@ -32,8 +38,8 @@ class Contents extends Component {
           onSubmit={this.props.onSubmit}
           onChange={this.props.onChange}
         />
-        <ImageContainer />
-        <ZipForm />
+        <ImageContainer sendToReducer={this.props.sendToReducer} images={this.props.images}></ImageContainer>
+        <ZipForm zippedFile={this.props.zippedFile}/>
       </div>
     );
   }
