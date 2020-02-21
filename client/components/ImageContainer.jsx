@@ -7,6 +7,11 @@ export default class ImageContainer extends Component {
   }
 
   render() {
-    return <div id="imageContainer">This is our image container</div>;
+    return (
+      <div id="imageContainer">
+        <p>This is our image container</p>
+        
+      </div>
+    );
   }
 }
