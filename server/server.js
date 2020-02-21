@@ -26,8 +26,9 @@ app.get('/', authController.createGeneralCookie, (req, res) => {
 });
 
 app.post('/images', imgController.addTaggedImages, (req, res) => {
-  console.log('yay it came back')
-  res.status(200).send('yay')
+  console.log('yay it came back');
+  console.log('res.locals.files: ', res.locals.files);
+  res.status(200).send('yay'); //.json(res.locals.files);
 });
 
 // app.post('/images', upload.array('myFiles', 12), (req, res, next) => {
@@ -50,6 +51,11 @@ app.post('/images', imgController.addTaggedImages, (req, res) => {
 // })
 
 app.get('/imageTags', (req, res) => {});
+
+app.get('/zip', imgController.addTaggedImages, (req, res) => {
+  console.log('res.locals.zippedFolder: ', res.locals.zippedFolder);
+  return res.status(200).send(res.locals.zippedFolder);
+});
 
 // use this route to test or debug individual middleware one by one
 app.post('/test', userController.createUser, (req, res) => {

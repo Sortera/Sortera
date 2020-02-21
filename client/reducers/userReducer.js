@@ -27,6 +27,7 @@ const userReducer = (state = initialState, action) => {
         ...state,
         images
       };
+
     case types.ADD_TABBED_IMAGES:
       // tabbedImages = [...action.payload]
       console.log('in reducer payload', action.payload)

@@ -4,6 +4,7 @@ import ImageUpload from '../components/ImageUpload.jsx';
 import * as actions from '../actions/actions';
 import { connect } from 'react-redux';
 import ZipForm from '../components/ZipForm.jsx';
+import ImageContainer from '../components/ImageContainer.jsx';
 
 const mapStateToProps = state => ({
   zippedFile: state.zippedFile,
