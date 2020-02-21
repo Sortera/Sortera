@@ -16,7 +16,7 @@ export default class ZipForm extends Component {
   render() {
     let button = <button id="zipButton">
     Zip Files
-    <i id="zipIcon" class="far fa-file-archive"></i>
+    <i id="zipIcon" className="far fa-file-archive"></i>
     </button>;
     if (this.props.zippedFile) {button = <form method="get" action="../../server/controllers/zippedFile.zip">
       <button type="submit" id="download-btn">Download!</button>
