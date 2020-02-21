@@ -13,8 +13,8 @@ export default class Header extends Component {
       <nav>
         <input type="checkbox" id="check"></input>
 
-        <h1>SORTERA</h1>
         <div id="logoDiv">
+          <h1>SORTERA</h1>
           <img id="logo" src={Logo} />
         </div>
 

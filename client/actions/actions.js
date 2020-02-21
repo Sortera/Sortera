@@ -6,10 +6,7 @@ export const addImage = files => ({
   payload: files
 });
 
-// export const addTabbedImages = (formData) => ({
-//   type: types.ADD_TABBED_IMAGES,
-//   payload: formData
-// })
+
 export const addTabbedImages = () => ({
   type: types.ADD_TABBED_IMAGES,
 })
@@ -22,24 +19,9 @@ export const addTabbedImagesAsync= (formData) => {
      
     })
     .then(() => {
-      console.log('in thunk success')
     dispatch(addTabbedImages())
   })
   .catch(err => {console.log(err)})
   };
 }
-// function makeASandwichWithSecretSauce(forPerson) {
-//   // We can invert control here by returning a function - the "thunk".
-//   // When this function is passed to `dispatch`, the thunk middleware will intercept it,
-//   // and call it with `dispatch` and `getState` as arguments.
-//   // This gives the thunk function the ability to run some logic, and still interact with the store.
-//   return function(dispatch) {
-//     return fetchSecretSauce().then(
-//       (sauce) => dispatch(makeASandwich(forPerson, sauce)),
-//       (error) => dispatch(apologize('The Sandwich Shop', forPerson, error)),
-//     );
-//   };
-// }
-// function fetchSecretSauce() {
-//   return fetch('https://www.google.com/search?q=secret+sauce');
-// }
+

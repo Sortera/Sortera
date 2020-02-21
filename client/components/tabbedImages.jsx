@@ -66,12 +66,12 @@ export default class TabbedImages extends Component {
     console.log('in tabbedImages', originalImages)
     // let values = Array.entries(originalImages);
     // console.log('values', values);
-    const imageElements = originalImages.map((image, index) => {
-      return (<img key={index} src={URL.createObjectURL(image)} className='image'></img>);
+    const imageElements = originalImages.map(image => {
+      return <img src={URL.createObjectURL(image)} className='image'></img>
     });
     console.log('is there taggedimages', this.state.taggedImages);
     return (
-      <div>
+      <div className="preview-images">
         {(this.state.taggedImages.length > 0) ? this.state.taggedImages : imageElements} 
       </div>
     );

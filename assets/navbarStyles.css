@@ -66,8 +66,9 @@ label #cancel {
 #logoDiv {
   display: flex;
   position: absolute;
-  top: 0.7%;
-  left: 24.5%;
+  top: 0.4%;
+  padding-right: 10rem;
+  left: 10.5%;
 }
 @media (max-width: 1118px) {
   nav img {
