@@ -5,7 +5,9 @@ import * as actions from '../actions/actions';
 import { connect } from 'react-redux';
 import ZipForm from '../components/ZipForm.jsx';
 
-const mapStateToProps = store => ({});
+const mapStateToProps = state => ({
+  zippedFile: state.zippedFile,
+});
 
 const mapDispatchToProps = dispatch => ({
   onChange: e => {
@@ -31,7 +33,7 @@ class Contents extends Component {
           onSubmit={this.props.onSubmit}
           onChange={this.props.onChange}
         />
-        <ZipForm />
+        <ZipForm zippedFile={this.props.zippedFile}/>
       </div>
     );
   }

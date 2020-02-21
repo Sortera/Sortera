@@ -10,6 +10,9 @@ const authController = require('./controllers/authController');
 const imgController = require('./controllers/imgController');
 const formData = require('express-form-data')
 const bodyParser = require('body-parser');
+// const fileupload = require('express-fileupload')
+// const multer = require('multer');
+
 
 app.use(bodyParser.json());
 app.use(express.json());
@@ -26,9 +29,24 @@ app.post('/images', imgController.addTaggedImages, (req, res) => {
   console.log('yay it came back')
   res.status(200).send('yay')
 });
-// app.post('/images', (req, res) => {
-//   // console.log('got to post', req)
-//   res.status(200).send('got to post')
+
+// app.post('/images', upload.array('myFiles', 12), (req, res, next) => {
+//   const files = req.files
+//   if (!files) {
+//     const error = new Error('Please choose files')
+//     error.httpStatusCode = 400
+//     return next(error)
+//   }
+//   fs.mkdirSync(path.join(__dirname , '/taggedPhotoFolder'), { recursive: true }, (err) => {
+//     if (err) console.log(err);
+//   });
+//     files.forEach((file) => {
+//       console.log('in new server', file)
+//       fs.writeFileSync(__dirname + '/taggedPhotoFolder/', file, err => {
+//         console.log('err from writeFileSync: ', err);
+//       });
+//     })
+  
 // })
 
 app.get('/imageTags', (req, res) => {});
