@@ -19,7 +19,7 @@ export default class ZipForm extends Component {
     <i id="zipIcon" class="far fa-file-archive"></i>
     </button>;
     if (this.props.zippedFile) {button = <form method="get" action="../../server/controllers/zippedFile.zip">
-      <button type="submit">Download!</button>
+      <button type="submit" id="download-btn">Download!</button>
       </form>;
     }
     

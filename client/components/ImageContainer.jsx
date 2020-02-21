@@ -10,8 +10,7 @@ export default class ImageContainer extends Component {
   render() {
     return (
       <div id="imageContainer">
-        <p>This is our image container</p>
-        
+        <TabbedImages sendToReducer={this.props.sendToReducer} images={this.props.images}></TabbedImages>
       </div>
     );
   }
