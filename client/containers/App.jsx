@@ -37,7 +37,7 @@ class App extends Component {
     return (
       <div className="App" style={{height:"100vh"}}>
         <Header/>
-        <Contents/>
+        <Contents images={images}/>
         {images}
         {/* <Login/> */}
       </div>

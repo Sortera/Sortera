@@ -13,3 +13,28 @@
   padding: 1rem;
   overflow-y: auto;
 }
+
+.preview-images {
+  display: flex;
+  position: absolute;
+  flex-direction: row;
+  flex-wrap: wrap;
+  border-width: 0.2rem;
+  width: fit-content;
+  transition: all 0.3s ease 0.3s;
+}
+
+.image{
+  border-style: solid;
+  border-radius: 1.5rem;
+  border-color: #31349b;
+  margin: 0.5rem;
+  height: 23rem;
+  width: 28rem;
+}
+
+.image img{
+  max-width: 100%;
+  display: block;
+  width: auto;
+}

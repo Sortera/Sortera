@@ -32,7 +32,7 @@ class Contents extends Component {
           onSubmit={this.props.onSubmit}
           onChange={this.props.onChange}
         />
-        <ImageContainer />
+        <ImageContainer images={this.props.images}/>
         <ZipForm />
       </div>
     );
