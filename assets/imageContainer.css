@@ -10,6 +10,17 @@
   border-color: #31349b;
   width: 60%;
   height: 50%;
-  padding: 1rem;
+  padding-left: 1rem;
+  padding-top: 1rem;
+  padding-right: 1rem;
   overflow-y: auto;
+}
+#centerLogo {
+  border-radius: 35%;
+  height: 74%;
+  display: flex;
+  position: absolute;
+  top: 13%;
+  left: 34%;
+  opacity: 60%;
 }
