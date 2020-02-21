@@ -8,6 +8,8 @@ import Login from "./Login.jsx";
 import { connect } from 'react-redux';
 import * as actions from '../actions/actions'
 import ReduxThunk from 'redux-thunk';
+import { BrowserRouter as Router, Route } from "react-router-dom";
+
 const mapStateToProps = state => ({
   images: state.images,
   state: state,
@@ -36,10 +38,19 @@ class App extends Component {
 
     return (
       <div className="App" style={{height:"100vh"}}>
-        <Header/>
-        <Contents/>
-        {/* {images} */}
-        {/* <Login/> */}
+          <Router>
+            <div>
+              <Route exact path="/">
+                <Header/>
+                <Contents/>
+                {/* {images} */}
+                {/* <Login/> */}
+              </Route>
+              <Route path="/signin">
+                <Login />
+              </Route>
+            </div>
+          </Router>
       </div>
     );
   }
