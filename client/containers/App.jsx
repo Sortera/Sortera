@@ -31,14 +31,13 @@ class App extends Component {
   render () {
     // console.log('app props', this.props)
     // console.log('state', this.props.state)
-    let images = <TabbedImages sendToReducer={this.props.sendToReducer} images={this.props.images}></TabbedImages>
+    // let images = <TabbedImages sendToReducer={this.props.sendToReducer} images={this.props.images}></TabbedImages>
     // let images = <TabbedImages images={{0: {path: './assets/pineapple.png'}, 1: {path: './assets/apple.jpg'}}}></TabbedImages>
 
     return (
       <div className="App" style={{height:"100vh"}}>
         <Header/>
-        <Contents images={images}/>
-        {images}
+        <Contents/>
         {/* <Login/> */}
       </div>
     );
