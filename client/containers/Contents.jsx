@@ -38,7 +38,7 @@ class Contents extends Component {
           onSubmit={this.props.onSubmit}
           onChange={this.props.onChange}
         />
-        <ImageContainer sendToReducer={this.props.sendToReducer} images={this.props.images}></ImageContainer>
+        <ImageContainer zippedFile={this.props.zippedFile} sendToReducer={this.props.sendToReducer} images={this.props.images}></ImageContainer>
         <ZipForm zippedFile={this.props.zippedFile}/>
       </div>
     );

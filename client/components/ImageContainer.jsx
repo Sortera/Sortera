@@ -9,13 +9,15 @@ export default class ImageContainer extends Component {
   }
 
   render() {
+    let logo = <img id="centerLogo" src={SorteraLogo} />;
+    if (this.props.zippedFile) {logo = []}
     return (
       <div id="imageContainer">
         <TabbedImages
           sendToReducer={this.props.sendToReducer}
           images={this.props.images}
         ></TabbedImages>
-        <img id="centerLogo" src={SorteraLogo} />
+        {logo}
       </div>
     );
   }
