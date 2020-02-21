@@ -7,7 +7,11 @@ const { zip } = require('zip-a-folder');
 const bufferFrom = require('buffer-from');
 
 const imgController = {};
+const formData = require('express-form-data')
 
+// imgController.addTagg
+
+ 
 imgController.addTaggedImages = (req, res, next) => {
   console.log('in add images');
   console.log('req.body: ', req.body);
@@ -104,28 +108,28 @@ imgController.addTaggedImages = (req, res, next) => {
     const buf = Buffer.from(file, 'base64');
     console.log('buf: ', buf)
     // semi-working:
-    // fs.writeFile(__dirname + '/taggedPhotoFolder/' + newFileName, buf, 'binary', err => {
-    //   console.log('err from writeFileSync: ', err);
+    fs.writeFileSync(__dirname + '/taggedPhotoFolder/' + newFileName, file, err => {
+      console.log('err from writeFileSync: ', err);
+    });
+    // fs.readFile(file, 'binary', function(err, original_data){
+    //   fs.writeFile('image_orig.jpg', original_data, 'binary', function(err) {});
+    //   var base64Image = new Buffer(original_data, 'binary').toString('base64');
+    //   var decodedImage = new Buffer(base64Image, 'base64').toString('binary');
+    //   fs.writeFile('image_decoded.jpg', decodedImage, 'binary', function(err) {});
     // });
-    fs.readFile(file, 'binary', function(err, original_data){
-      fs.writeFile('image_orig.jpg', original_data, 'binary', function(err) {});
-      var base64Image = new Buffer(original_data, 'binary').toString('base64');
-      var decodedImage = new Buffer(base64Image, 'base64').toString('binary');
-      fs.writeFile('image_decoded.jpg', decodedImage, 'binary', function(err) {});
-  });
   });
 
 
 
   //now zip that folder and send the zip somewhere
-  // class ZipAFolder {
-  //   static async main() {
-  //     const response = await zip('/taggedPhotoFolder', '/zippedFile.zip');
-  //     console.log('response', response);
-  //   }
-  // }
-  // console.log('before await zipp');
-  // ZipAFolder.main();
+  class ZipAFolder {
+    static async main() {
+      const response = await zip(__dirname + '/taggedPhotoFolder', __dirname + '/zippedFile.zip');
+      console.log('response', response);
+    }
+  }
+  console.log('before await zipp');
+  ZipAFolder.main();
 
   // // Create a readable stream that we can pipe to the response object
   // let readStream = fs.createReadStream('/zippedFile.zip');
